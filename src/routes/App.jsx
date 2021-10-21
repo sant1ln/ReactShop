@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Layout from "../container/Layout";
+import Layout from "../containers/Layout";
 import Checkout from "../pages/Checkout";
 import CreateAccount from "../pages/CreateAccount";
 import Home from "../pages/Home";
@@ -18,15 +18,15 @@ const App = () => {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/password-recovery" component={RecoveryPassword} />
-					<Route exact path="/send-email" component={SendEmail} />
-					<Route exact path="/new-password" component={NewPassword} />
-					<Route exact path="/account" component={MyAccount} />
-					<Route exact path="/signup" component={CreateAccount} />
-					<Route exact path="/checkout" component={Checkout} />
-					<Route exact path="/orders" component={Orders} />
-					<Route path="*" component={NotFound} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/password-recovery" component={RecoveryPassword} />
+          <Route exact path="/send-email" component={SendEmail} />
+          <Route exact path="/new-password" component={NewPassword} />
+          <Route exact path="/account" component={MyAccount} />
+          <Route exact path="/signup" component={CreateAccount} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/orders" component={Orders} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Layout>
     </BrowserRouter>
