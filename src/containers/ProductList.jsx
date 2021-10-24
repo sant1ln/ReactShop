@@ -9,9 +9,11 @@ const ProductList = () => {
   return (
     <section className="main-container">
       <div className="ProductList">
-        {products.map((product) => (
+        {products.map((product,index) => (
           <ProductItem
             key={product.id}
+            id={product.id}
+            idItemInCart={`cartItem-${product.id + index}`}
             title={product.title}
             price={product.price}
 						image={product.images[0]}

@@ -4,8 +4,13 @@ import menu from "@icons/icon_menu.svg";
 import logo from "@logos/logo_yard_sale.svg";
 import shoppingCart from "@icons/icon_shopping_cart.svg";
 import Menu from "./Menu";
+import AppContext from "../context/AppContext";
+import MyOrder from "../containers/MyOrder";
 
 const Header = () => {
+
+  const {state:{cart}} = React.useContext(AppContext)
+  const [toggleOrders,setToggleOrders] = React.useState(false)
   const [toggle, setToggle] = React.useState(false);
 
   const handleToogle = () => {
@@ -46,13 +51,15 @@ const Header = () => {
           <li className="navbar-email" onClick={handleToogle}>
             platzi@example.com
           </li>
-          <li className="navbar-shopping-cart">
+          <li className="navbar-shopping-cart" 
+          onClick={()=>setToggleOrders(!toggleOrders)}>
             <img src={shoppingCart} alt="shopping cart" />
-            <div>2</div>
+            {cart.length > 0 && <div>{cart.length}</div>}
           </li>
         </ul>
       </div>
       {toggle && <Menu />}
+      {toggleOrders && <MyOrder />}
     </nav>
   );
 };

@@ -1,15 +1,22 @@
 import React from 'react';
 import '../styles/OrderItem.scss';
+import closeIcon from '@icons/icon_close.png';
+import AppContext from '../context/AppContext';
 
-const OrderItem = () => {
+const OrderItem = ({id,idItemInCart,title,price,image}) => {
+	const {removeFromCart} = React.useContext(AppContext)
+
+	const handleRemove = product => {
+		removeFromCart(product)
+	}
 	return (
 		<div className="OrderItem">
 			<figure>
-				<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" />
+				<img src={image} />
 			</figure>
-			<p>Bike</p>
-			<p>$30,00</p>
-			<img src="./icons/icon_close.png" alt="close" />
+			<p>{title}</p>
+			<p>{price}0</p>
+			<img src={closeIcon} alt="close"  onClick={()=>handleRemove(idItemInCart)} />
 		</div>
 	);
 }
